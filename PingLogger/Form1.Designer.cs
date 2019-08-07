@@ -39,7 +39,7 @@ namespace PingLogger
             this.StartPingBtn = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.OutputText = new System.Windows.Forms.TextBox();
+            this.OutputText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // debugInstructionsLabel
@@ -129,14 +129,13 @@ namespace PingLogger
             // 
             // OutputText
             // 
-            this.OutputText.BackColor = System.Drawing.SystemColors.Window;
-            this.OutputText.Location = new System.Drawing.Point(152, 104);
-            this.OutputText.Multiline = true;
+            this.OutputText.DetectUrls = false;
+            this.OutputText.Location = new System.Drawing.Point(158, 104);
             this.OutputText.Name = "OutputText";
-            this.OutputText.Size = new System.Drawing.Size(397, 233);
+            this.OutputText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.OutputText.Size = new System.Drawing.Size(401, 246);
             this.OutputText.TabIndex = 9;
-            // Add vertical scroll bars to the TextBox control.
-            this.OutputText.ScrollBars = ScrollBars.Vertical;
+            this.OutputText.Text = "";
             // 
             // Form1
             // 
@@ -171,7 +170,7 @@ namespace PingLogger
         private System.Windows.Forms.Button StartPingBtn;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox OutputText;
+        private RichTextBox OutputText;
     }
 }
 

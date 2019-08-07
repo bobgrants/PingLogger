@@ -61,8 +61,8 @@ namespace PingLogger
             if (Pinging)
             {
                 //Debug.WriteLine("Timer Tick " + DateTime.Now);
-                f1.Controls["OutputText"].Text += "Timer Tick " + DateTime.Now +Environment.NewLine;
-                f1.Controls["OutputText"].AutoScrollOffset = new Point(f1.Controls["OutputText"].AutoScrollOffset.X, -10000);
+                f1.Controls["OutputText"].Text += "Timer Tick " + DateTime.Now + Environment.NewLine;
+                //f1.Controls["OutputText"].te ScrollToCaret();
             }
         }
 
