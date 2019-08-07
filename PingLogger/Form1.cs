@@ -51,7 +51,7 @@ namespace PingLogger
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void ipAdressBox_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -74,6 +74,12 @@ namespace PingLogger
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void OutputText_TextChanged(object sender, EventArgs e)
+        {
+            OutputText.SelectionStart = OutputText.Text.Length;
+            OutputText.ScrollToCaret();
         }
     }
 }

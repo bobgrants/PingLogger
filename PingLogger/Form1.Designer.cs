@@ -33,7 +33,7 @@ namespace PingLogger
             this.debugInstructionsLabel = new System.Windows.Forms.Label();
             this.SelectFolderBtn = new System.Windows.Forms.Button();
             this.helloWorldLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ipAdressBox = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.StartPingBtn = new System.Windows.Forms.Button();
@@ -76,13 +76,13 @@ namespace PingLogger
             this.helloWorldLabel.Text = "Enter Ping address :";
             this.helloWorldLabel.Click += new System.EventHandler(this.helloWorldLabel_Click);
             // 
-            // textBox1
+            // ipAdressBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.ipAdressBox.Location = new System.Drawing.Point(153, 21);
+            this.ipAdressBox.Name = "ipAdressBox";
+            this.ipAdressBox.Size = new System.Drawing.Size(100, 20);
+            this.ipAdressBox.TabIndex = 4;
+            this.ipAdressBox.TextChanged += new System.EventHandler(this.ipAdressBox_TextChanged);
             // 
             // textBox2
             // 
@@ -120,10 +120,10 @@ namespace PingLogger
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(14, 104);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(90, 17);
+            this.radioButton2.Size = new System.Drawing.Size(95, 17);
             this.radioButton2.TabIndex = 8;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Log Error only";
+            this.radioButton2.Text = "Log Errors only";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
@@ -136,6 +136,7 @@ namespace PingLogger
             this.OutputText.Size = new System.Drawing.Size(401, 246);
             this.OutputText.TabIndex = 9;
             this.OutputText.Text = "";
+            this.OutputText.TextChanged += new System.EventHandler(this.OutputText_TextChanged);
             // 
             // Form1
             // 
@@ -147,7 +148,7 @@ namespace PingLogger
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.StartPingBtn);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ipAdressBox);
             this.Controls.Add(this.helloWorldLabel);
             this.Controls.Add(this.SelectFolderBtn);
             this.Controls.Add(this.debugInstructionsLabel);
@@ -164,7 +165,7 @@ namespace PingLogger
         private System.Windows.Forms.Label debugInstructionsLabel;
         private System.Windows.Forms.Button SelectFolderBtn;
         private System.Windows.Forms.Label helloWorldLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ipAdressBox;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button StartPingBtn;
