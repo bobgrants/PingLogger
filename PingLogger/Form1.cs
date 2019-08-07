@@ -36,7 +36,7 @@ namespace PingLogger
 
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                textBox2.Text = dialog.FileName;
+                outputPathBox.Text = dialog.FileName;
             }
 
         }
@@ -56,7 +56,7 @@ namespace PingLogger
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void outputPathBox_TextChanged(object sender, EventArgs e)
         {
 
         }

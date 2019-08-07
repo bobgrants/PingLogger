@@ -35,7 +35,7 @@ namespace PingLogger
             this.helloWorldLabel = new System.Windows.Forms.Label();
             this.ipAdressBox = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.outputPathBox = new System.Windows.Forms.TextBox();
             this.StartPingBtn = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -84,13 +84,13 @@ namespace PingLogger
             this.ipAdressBox.TabIndex = 4;
             this.ipAdressBox.TextChanged += new System.EventHandler(this.ipAdressBox_TextChanged);
             // 
-            // textBox2
+            // outputPathBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(158, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.outputPathBox.Location = new System.Drawing.Point(158, 60);
+            this.outputPathBox.Name = "outputPathBox";
+            this.outputPathBox.Size = new System.Drawing.Size(275, 20);
+            this.outputPathBox.TabIndex = 5;
+            this.outputPathBox.TextChanged += new System.EventHandler(this.outputPathBox_TextChanged);
             // 
             // StartPingBtn
             // 
@@ -147,7 +147,7 @@ namespace PingLogger
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.StartPingBtn);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.outputPathBox);
             this.Controls.Add(this.ipAdressBox);
             this.Controls.Add(this.helloWorldLabel);
             this.Controls.Add(this.SelectFolderBtn);
@@ -167,7 +167,7 @@ namespace PingLogger
         private System.Windows.Forms.Label helloWorldLabel;
         private System.Windows.Forms.TextBox ipAdressBox;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox outputPathBox;
         private System.Windows.Forms.Button StartPingBtn;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;

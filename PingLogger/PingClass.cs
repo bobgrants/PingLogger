@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -19,6 +20,8 @@ namespace PingLogger
         Ping p = new Ping();
         PingReply pr;
 
+        string logFileOutput;
+        string pingResult;
 
 
         public void InitializeTimer()
@@ -52,6 +55,10 @@ namespace PingLogger
                 f1.Controls["StartPingBtn"].Text = "Stop Ping";
                 
                 Pinging = true;
+
+                logFileOutput = f1.Controls["outputPathBox"].Text; //+ "\\" + DateTime.Now.ToString("yyyy-MM-dd-THHmmss") + ".txt";
+
+                File.WriteAllText(Path.Combine(logFileOutput, "WriteFile.txt"), "Welcome" + Environment.NewLine);
             }
         }
 
@@ -67,9 +74,14 @@ namespace PingLogger
             if (Pinging)
             {
                 pr = p.Send(f1.Controls["ipAdressBox"].Text);
-                //f1.Controls["OutputText"].Text += "Timer Tick " + DateTime.Now + Environment.NewLine;
-                //f1.Controls["OutputText"].Text += new Ping().Send("www.google.com").RoundtripTime.ToString() + "ms" + Environment.NewLine;
-                f1.Controls["OutputText"].Text += "bytes="+pr.Buffer.Length.ToString() + " " + pr.RoundtripTime.ToString()+"ms" + " " + pr.Status.ToString() + Environment.NewLine;
+
+                pingResult = "bytes=" + pr.Buffer.Length.ToString() + " " + pr.RoundtripTime.ToString() + "ms" + " " + pr.Status.ToString();
+                f1.Controls["OutputText"].Text += pingResult + Environment.NewLine;
+
+                Debug.WriteLine("logFileOutput: " + logFileOutput);
+
+                //File.WriteAllText(Path.Combine(logFileOutput, "WriteFile.txt"), pingResult + Environment.NewLine);
+                File.AppendAllText(Path.Combine(logFileOutput, "WriteFile.txt"), pingResult + Environment.NewLine);
             }
         }
 
