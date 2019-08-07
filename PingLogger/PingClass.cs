@@ -61,7 +61,7 @@ namespace PingLogger
 
             ActualPing();
         }
-
+        
         void ActualPing()
         {
             if (Pinging)
