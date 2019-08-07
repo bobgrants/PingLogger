@@ -37,8 +37,8 @@ namespace PingLogger
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.outputPathBox = new System.Windows.Forms.TextBox();
             this.StartPingBtn = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.allLogRadioB = new System.Windows.Forms.RadioButton();
+            this.errorOnlyRadioB = new System.Windows.Forms.RadioButton();
             this.OutputText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -82,6 +82,7 @@ namespace PingLogger
             this.ipAdressBox.Name = "ipAdressBox";
             this.ipAdressBox.Size = new System.Drawing.Size(100, 20);
             this.ipAdressBox.TabIndex = 4;
+            this.ipAdressBox.Text = "8.8.8.8";
             this.ipAdressBox.TextChanged += new System.EventHandler(this.ipAdressBox_TextChanged);
             // 
             // outputPathBox
@@ -90,6 +91,7 @@ namespace PingLogger
             this.outputPathBox.Name = "outputPathBox";
             this.outputPathBox.Size = new System.Drawing.Size(275, 20);
             this.outputPathBox.TabIndex = 5;
+            this.outputPathBox.Text = "d:\\";
             this.outputPathBox.TextChanged += new System.EventHandler(this.outputPathBox_TextChanged);
             // 
             // StartPingBtn
@@ -103,29 +105,30 @@ namespace PingLogger
             this.StartPingBtn.UseVisualStyleBackColor = true;
             this.StartPingBtn.Click += new System.EventHandler(this.StartPingBtn_Click);
             // 
-            // radioButton1
+            // allLogRadioB
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(14, 127);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(96, 17);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Log Everything";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.allLogRadioB.AutoSize = true;
+            this.allLogRadioB.Location = new System.Drawing.Point(14, 127);
+            this.allLogRadioB.Name = "allLogRadioB";
+            this.allLogRadioB.Size = new System.Drawing.Size(96, 17);
+            this.allLogRadioB.TabIndex = 7;
+            this.allLogRadioB.TabStop = true;
+            this.allLogRadioB.Text = "Log Everything";
+            this.allLogRadioB.UseVisualStyleBackColor = true;
+            this.allLogRadioB.CheckedChanged += new System.EventHandler(this.allLogRadioB_CheckedChanged);
+            this.allLogRadioB.Checked = true;
             // 
-            // radioButton2
+            // errorOnlyRadioB
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(14, 104);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Log Errors only";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.errorOnlyRadioB.AutoSize = true;
+            this.errorOnlyRadioB.Location = new System.Drawing.Point(14, 104);
+            this.errorOnlyRadioB.Name = "errorOnlyRadioB";
+            this.errorOnlyRadioB.Size = new System.Drawing.Size(95, 17);
+            this.errorOnlyRadioB.TabIndex = 8;
+            this.errorOnlyRadioB.TabStop = true;
+            this.errorOnlyRadioB.Text = "Log Errors only";
+            this.errorOnlyRadioB.UseVisualStyleBackColor = true;
+            this.errorOnlyRadioB.CheckedChanged += new System.EventHandler(this.errorOnlyRadioB_CheckedChanged);
             // 
             // OutputText
             // 
@@ -144,8 +147,8 @@ namespace PingLogger
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 362);
             this.Controls.Add(this.OutputText);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.errorOnlyRadioB);
+            this.Controls.Add(this.allLogRadioB);
             this.Controls.Add(this.StartPingBtn);
             this.Controls.Add(this.outputPathBox);
             this.Controls.Add(this.ipAdressBox);
@@ -169,8 +172,8 @@ namespace PingLogger
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TextBox outputPathBox;
         private System.Windows.Forms.Button StartPingBtn;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton allLogRadioB;
+        private System.Windows.Forms.RadioButton errorOnlyRadioB;
         private RichTextBox OutputText;
     }
 }

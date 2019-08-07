@@ -18,6 +18,8 @@ namespace PingLogger
 
         PingClass pc = new PingClass();
 
+        public bool logErrorOnly;
+
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace PingLogger
             pc.Start();
             pc.InitializeTimer();
             pc.f1 = this;
-
+            logErrorOnly = false;
         }
 
         private void SelectFolderBtn_Click(object sender, EventArgs e)
@@ -66,13 +68,15 @@ namespace PingLogger
             pc.EnablePing();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void errorOnlyRadioB_CheckedChanged(object sender, EventArgs e)
         {
+            logErrorOnly = true;
 
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void allLogRadioB_CheckedChanged(object sender, EventArgs e)
         {
+            logErrorOnly = false;
 
         }
 

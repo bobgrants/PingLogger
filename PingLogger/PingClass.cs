@@ -24,6 +24,7 @@ namespace PingLogger
         string pingResult;
 
 
+
         public void InitializeTimer()
         {
             /* Adds the event and the event handler for the method that will 
@@ -49,16 +50,25 @@ namespace PingLogger
             {
                 f1.Controls["StartPingBtn"].Text = "Start Ping";
                 Pinging = false;
+                f1.Controls["outputPathBox"].Enabled = true;
+                f1.Controls["ipAdressBox"].Enabled = true;
+                f1.Controls["allLogRadioB"].Enabled = true;
+                f1.Controls["errorOnlyRadioB"].Enabled = true;
             }
             else if (!Pinging)
             {
+
                 f1.Controls["StartPingBtn"].Text = "Stop Ping";
-                
+
                 Pinging = true;
 
                 logFileOutput = f1.Controls["outputPathBox"].Text; //+ "\\" + DateTime.Now.ToString("yyyy-MM-dd-THHmmss") + ".txt";
-
-                File.WriteAllText(Path.Combine(logFileOutput, "WriteFile.txt"), "Welcome" + Environment.NewLine);
+                f1.Controls["outputPathBox"].Enabled = false;
+                f1.Controls["ipAdressBox"].Enabled = false;
+                f1.Controls["allLogRadioB"].Enabled = false;
+                f1.Controls["errorOnlyRadioB"].Enabled = false;
+                File.WriteAllText(Path.Combine(logFileOutput, "WriteFile.txt"), " " + Environment.NewLine);
+                    
             }
         }
 
@@ -73,17 +83,36 @@ namespace PingLogger
         {
             if (Pinging)
             {
-                pr = p.Send(f1.Controls["ipAdressBox"].Text);
+                if (!f1.logErrorOnly)
+                {
+                    pr = p.Send(f1.Controls["ipAdressBox"].Text);
 
-                pingResult = "bytes=" + pr.Buffer.Length.ToString() + " " + pr.RoundtripTime.ToString() + "ms" + " " + pr.Status.ToString();
-                f1.Controls["OutputText"].Text += pingResult + Environment.NewLine;
+                    pingResult = "bytes=" + pr.Buffer.Length.ToString() + " " + pr.RoundtripTime.ToString() + "ms" + " " + pr.Status.ToString();
+                    f1.Controls["OutputText"].Text += pingResult + Environment.NewLine;
 
-                Debug.WriteLine("logFileOutput: " + logFileOutput);
+                    Debug.WriteLine("logFileOutput: " + logFileOutput);
 
-                //File.WriteAllText(Path.Combine(logFileOutput, "WriteFile.txt"), pingResult + Environment.NewLine);
-                File.AppendAllText(Path.Combine(logFileOutput, "WriteFile.txt"), pingResult + Environment.NewLine);
+                    File.AppendAllText(Path.Combine(logFileOutput, "WriteFile.txt"), pingResult + " - " + DateTime.Now.ToString("HH:mm:ss") + Environment.NewLine);
+                }
+                else if (f1.logErrorOnly)
+                {
+                    pr = p.Send(f1.Controls["ipAdressBox"].Text);
+
+                    pingResult = "bytes=" + pr.Buffer.Length.ToString() + " " + pr.RoundtripTime.ToString() + "ms" + " " + pr.Status.ToString();
+
+                    if (pr.Status.ToString() != "Success")
+                    {
+                        f1.Controls["OutputText"].Text += pingResult + Environment.NewLine;
+
+                        Debug.WriteLine("logFileOutput: " + logFileOutput);
+
+                        File.AppendAllText(Path.Combine(logFileOutput, "WriteFile.txt"), pingResult + " - " + DateTime.Now.ToString("HH:mm:ss") + Environment.NewLine);
+                    }
+
+                }
+
+
             }
         }
-
     }
 }
